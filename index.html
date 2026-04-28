@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Embedded Systems, Security, and Technical Writing | Fluid Fortune Services</title>
+  <meta name="description" content="Fluid Fortune Services — Embedded systems consulting, security audits, and technical writing. Built by someone who actually builds things.">
+  <meta property="og:title" content="Embedded Systems, Security, and Technical Writing | Fluid Fortune Services">
+  <meta property="og:description" content="Fluid Fortune Services — Embedded systems consulting, security audits, and technical writing. Built by someone who actually builds things.">
+  <meta property="og:url" content="https://services.fluidfortune.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Share+Tech+Mono&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>/* FLUID FORTUNE SERVICES — SHARED STYLESHEET */
+:root {
+  --bg:        #0d1117;
+  --bg2:       #161b22;
+  --bg3:       #1e2530;
+  --fg:        #e6edf3;
+  --fg2:       #8b949e;
+  --fg3:       #484f58;
+  --green:     #00ff41;
+  --green2:    #00c032;
+  --green3:    #1a3a1a;
+  --amber:     #f59e0b;
+  --amber2:    #2e1f0a;
+  --border:    #30363d;
+  --font-disp: 'Orbitron', monospace;
+  --font-body: 'Share Tech Mono', monospace;
+  --font-ui:   'Inter', sans-serif;
+  --max-w:     960px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--font-body);line-height:1.75;-webkit-font-smoothing:antialiased}
+
+/* NAV */
+.site-nav{background:var(--bg2);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+.site-nav-inner{max-width:var(--max-w);margin:0 auto;padding:0 2rem;display:flex;align-items:center;gap:2rem;height:52px}
+.nav-brand{font-family:var(--font-disp);font-size:.7rem;color:var(--green);letter-spacing:.15em;text-decoration:none}
+.nav-links{display:flex;gap:1.5rem;margin-left:auto}
+.nav-links a{font-size:.62rem;letter-spacing:.1em;color:var(--fg2);text-decoration:none;transition:color .15s}
+.nav-links a:hover,.nav-links a.active{color:var(--green)}
+.nav-cta{background:var(--green);color:var(--bg)!important;padding:.25rem .75rem;font-weight:700}
+.nav-cta:hover{background:var(--green2)!important}
+
+/* PAGE WRAPPER */
+.page{max-width:var(--max-w);margin:0 auto;padding:0 2rem}
+
+/* HERO */
+.hero{padding:5rem 0 4rem;border-bottom:1px solid var(--border)}
+.hero-eyebrow{font-size:.6rem;letter-spacing:.25em;color:var(--green);margin-bottom:1rem}
+.hero-title{font-family:var(--font-disp);font-size:clamp(1.6rem,4vw,2.8rem);color:var(--fg);letter-spacing:.05em;line-height:1.1;margin-bottom:1rem}
+.hero-title span{color:var(--green)}
+.hero-sub{font-size:.95rem;color:var(--fg2);line-height:1.85;max-width:640px;margin-bottom:2rem}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+
+/* BUTTONS */
+.btn{font-family:var(--font-body);font-size:.68rem;letter-spacing:.12em;padding:.5rem 1.25rem;border:1px solid;text-decoration:none;transition:.15s;display:inline-block;cursor:pointer}
+.btn-primary{background:var(--green);color:var(--bg);border-color:var(--green)}
+.btn-primary:hover{background:var(--green2);border-color:var(--green2)}
+.btn-ghost{background:transparent;color:var(--fg2);border-color:var(--border)}
+.btn-ghost:hover{border-color:var(--fg2);color:var(--fg)}
+.btn-amber{background:var(--amber);color:var(--bg);border-color:var(--amber)}
+.btn-amber:hover{filter:brightness(1.1)}
+
+/* SECTIONS */
+.section{padding:4rem 0;border-bottom:1px solid var(--border)}
+.section:last-child{border-bottom:none}
+.section-label{font-size:.58rem;letter-spacing:.25em;color:var(--green);margin-bottom:1rem}
+.section-title{font-family:var(--font-disp);font-size:1.4rem;color:var(--fg);letter-spacing:.05em;margin-bottom:1rem;line-height:1.2}
+.section-sub{font-size:.9rem;color:var(--fg2);line-height:1.85;margin-bottom:2rem}
+
+/* SERVICE CARDS */
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
+.card{background:var(--bg2);border:1px solid var(--border);padding:1.75rem;transition:border-color .15s}
+.card:hover{border-color:var(--green)}
+.card-icon{font-size:1.5rem;margin-bottom:.75rem}
+.card-title{font-family:var(--font-disp);font-size:.85rem;color:var(--fg);letter-spacing:.08em;margin-bottom:.5rem}
+.card-desc{font-size:.82rem;color:var(--fg2);line-height:1.75;margin-bottom:1.25rem}
+.card-link{font-size:.62rem;letter-spacing:.1em;color:var(--green);text-decoration:none;transition:color .15s}
+.card-link:hover{color:var(--green2)}
+
+/* PROOF STRIP */
+.proof-strip{background:var(--bg2);border:1px solid var(--border);padding:2rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem}
+.proof-item{}
+.proof-label{font-size:.55rem;letter-spacing:.2em;color:var(--fg3);margin-bottom:.25rem}
+.proof-value{font-size:.82rem;color:var(--fg);font-weight:500}
+.proof-value a{color:var(--green);text-decoration:none}
+
+/* TWO COLUMN */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.two-col-wide{display:grid;grid-template-columns:2fr 1fr;gap:3rem;align-items:start}
+
+/* OFFERING BLOCKS */
+.offering{border-left:3px solid var(--green);padding:1.25rem 1.5rem;background:var(--bg2);margin-bottom:1rem}
+.offering-title{font-family:var(--font-disp);font-size:.8rem;color:var(--green);letter-spacing:.08em;margin-bottom:.4rem}
+.offering-desc{font-size:.85rem;color:var(--fg2);line-height:1.75}
+
+/* RATE CARD */
+.rate-card{background:var(--bg2);border:1px solid var(--border);padding:1.5rem}
+.rate-card-title{font-family:var(--font-disp);font-size:.85rem;color:var(--fg);letter-spacing:.08em;padding-bottom:.75rem;border-bottom:1px solid var(--border);margin-bottom:1rem}
+.rate-row{display:flex;justify-content:space-between;align-items:baseline;padding:.4rem 0;border-bottom:1px solid var(--bg3);gap:1rem}
+.rate-row:last-child{border-bottom:none}
+.rate-label{font-size:.78rem;color:var(--fg2)}
+.rate-price{font-size:.78rem;color:var(--green);white-space:nowrap}
+
+/* PROCESS STEPS */
+.process-steps{counter-reset:steps}
+.step{display:flex;gap:1.5rem;padding:1.5rem 0;border-bottom:1px solid var(--border)}
+.step:last-child{border-bottom:none}
+.step-num{font-family:var(--font-disp);font-size:1.4rem;color:var(--green3);flex-shrink:0;width:2rem;text-align:center;padding-top:.1rem;counter-increment:steps}
+.step-num::before{content:counter(steps,"0")}
+.step-body{}
+.step-title{font-family:var(--font-disp);font-size:.82rem;color:var(--fg);letter-spacing:.06em;margin-bottom:.4rem}
+.step-desc{font-size:.85rem;color:var(--fg2);line-height:1.75}
+
+/* CALLOUT */
+.callout{border:1px solid var(--amber);background:var(--amber2);padding:1.25rem 1.5rem;margin:2rem 0}
+.callout p{font-size:.85rem;color:var(--amber);line-height:1.75}
+.callout strong{color:var(--amber)}
+
+/* TABLE */
+table{width:100%;border-collapse:collapse;font-size:.82rem;margin:1rem 0 2rem}
+th{background:var(--bg3);color:var(--fg);padding:.6rem .75rem;text-align:left;font-size:.65rem;letter-spacing:.1em;border:1px solid var(--border)}
+td{padding:.5rem .75rem;color:var(--fg2);border:1px solid var(--border)}
+tr:nth-child(even) td{background:var(--bg2)}
+
+/* FOOTER */
+.site-footer{border-top:2px solid var(--green);padding:2rem 0;margin-top:4rem}
+.site-footer-inner{max-width:var(--max-w);margin:0 auto;padding:0 2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-brand{font-family:var(--font-disp);font-size:.65rem;color:var(--green);letter-spacing:.15em}
+.footer-links{display:flex;gap:1.5rem}
+.footer-links a{font-size:.6rem;letter-spacing:.08em;color:var(--fg2);text-decoration:none;transition:color .15s}
+.footer-links a:hover{color:var(--green)}
+.footer-creed{font-size:.58rem;color:var(--fg3);letter-spacing:.08em;width:100%}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--border)}
+
+@media(max-width:720px){
+  .two-col,.two-col-wide{grid-template-columns:1fr}
+  .cards-grid{grid-template-columns:1fr}
+  .site-nav-inner{gap:1rem}
+  .nav-links{gap:1rem}
+  .page{padding:0 1.25rem}
+}
+</style>
+</head>
+<body>
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <a href="index.html" class="active" class="nav-brand">FLUID FORTUNE // SERVICES</a>
+    <div class="nav-links">
+      <a href="writing.html">WRITING</a>
+      <a href="consulting.html">CONSULTING</a>
+      <a href="audits.html">AUDITS</a>
+      <a href="rates.html">RATES</a>
+      <a href="process.html">PROCESS</a>
+      <a href="contact.html" class="nav-cta">HIRE THE FORGE</a>
+    </div>
+  </div>
+</nav>
+<div class="page">
+  <div class="hero">
+    <div class="hero-eyebrow">// FLUID FORTUNE — OPEN FOR BUSINESS</div>
+    <h1 class="hero-title">Embedded Systems, Security,<br>and Technical Writing —<br><span>Built by Someone Who Actually Builds Things.</span></h1>
+    <p class="hero-sub">The Fluid Fortune forge has built a dual-core OS on a $50 microcontroller, invented a named architectural standard that now belongs to the public technical literature, shipped a distributed threat intelligence system from commodity hardware, and published a complete local AI agent framework with no cloud dependency. If your team needs someone who understands complex systems and can explain them clearly — in code, in documentation, or in prose — that is the work.</p>
+    <div class="hero-actions">
+      <a href="contact.html" class="btn btn-primary">START A CONVERSATION →</a>
+      <a href="https://fluidfortune.com/sovereignty.html" class="btn btn-ghost" target="_blank">READ THE WHITE PAPER</a>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">// WHAT THE FORGE DOES</div>
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-icon">📝</div>
+        <div class="card-title">TECHNICAL WRITING</div>
+        <p class="card-desc">White papers, documentation, long-form articles, and technical blog content for companies that build complex systems. Hardware, firmware, cybersecurity, embedded platforms, developer tooling.</p>
+        <a href="writing.html" class="card-link">LEARN MORE →</a>
+      </div>
+      <div class="card">
+        <div class="card-icon">⚙️</div>
+        <div class="card-title">SYSTEMS CONSULTING</div>
+        <p class="card-desc">Remote advisory work on embedded platform design, local AI deployment, homelab architecture, network security posture, and custom firmware strategy. Defined scopes. Clear deliverables.</p>
+        <a href="consulting.html" class="card-link">LEARN MORE →</a>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔍</div>
+        <div class="card-title">SECURITY AUDITS</div>
+        <p class="card-desc">Formal security assessments for small organizations. Data handling practices, network architecture, device management posture. Delivered as a written report with findings by severity and plain-language remediation steps.</p>
+        <a href="audits.html" class="card-link">LEARN MORE →</a>
+      </div>
+      <div class="card">
+        <div class="card-icon">📋</div>
+        <div class="card-title">INSURANCE & LOGISTICS</div>
+        <p class="card-desc">Workflow optimization, data handling review, and security posture assessment for insurance brokerages and logistics operations. The rare combination of domain expertise and technical depth.</p>
+        <a href="consulting.html#insurance" class="card-link">LEARN MORE →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">// PROOF OF WORK</div>
+    <div class="proof-strip">
+      <div class="proof-item">
+        <div class="proof-label">PRIMARY INVENTION</div>
+        <div class="proof-value">The SPI Bus Treaty — first named architectural standard for shared-bus arbitration on the ESP32-S3</div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-label">DEFCON 34 CFP</div>
+        <div class="proof-value">Submission ID: 1349 — Under Review — August 2026</div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-label">PUBLIC CODEBASE</div>
+        <div class="proof-value"><a href="https://github.com/FluidFortune" target="_blank">github.com/FluidFortune</a> — 10 public repos, all verifiable</div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-label">LIVE DEMONSTRATION</div>
+        <div class="proof-value"><a href="https://wozbot.fluidfortune.com" target="_blank">wozbot.fluidfortune.com</a> — AI on bare metal, no cloud</div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-label">HARDWARE COST</div>
+        <div class="proof-value">$144 total to build a dual-core field intelligence OS</div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-label">ENGINEERING RECORD</div>
+        <div class="proof-value"><a href="https://fluidfortune.com/engineering-record.html" target="_blank">12 documented solutions across 9 projects</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">// THE WRITING SAMPLE</div>
+    <div class="two-col-wide">
+      <div>
+        <h2 class="section-title">The White Paper Is the Proof.</h2>
+        <p class="section-sub">The Fluid Fortune Sovereignty White Paper is a complete technical and philosophical record of building a dual-core field intelligence OS on a $50 microcontroller — covering embedded OS architecture, SPI bus arbitration, dual-core synchronization, memory management, and security partitioning — while remaining readable to an intelligent non-engineer throughout. That is not a common capability. It is a writing sample. It speaks for itself.</p>
+        <a href="https://fluidfortune.com/sovereignty.html" class="btn btn-ghost" target="_blank" style="margin-right:.75rem">READ THE WHITE PAPER →</a>
+        <a href="https://fluidfortune.com/engineering-record.html" class="btn btn-ghost" target="_blank">ENGINEERING RECORD →</a>
+      </div>
+      <div>
+        <div class="offering">
+          <div class="offering-title">WHAT MAKES THIS DIFFERENT</div>
+          <p class="offering-desc">Most technical writers can explain what they have been told. The forge explains what it has built. The SPI Bus Treaty did not exist before this project. Six engineering problems were solved that had no prior documented solutions. The writing comes from someone who was there when the hardware crashed and stayed until it did not.</p>
+        </div>
+        <div class="offering">
+          <div class="offering-title">AVAILABLE FOR HIRE</div>
+          <p class="offering-desc">Remote. Global. Defined scopes. No disappearing acts. Response within 48 hours.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">// START HERE</div>
+    <div style="text-align:center;padding:2rem 0">
+      <div style="font-family:var(--font-disp);font-size:.65rem;color:var(--green);letter-spacing:.15em;margin-bottom:1rem">THE BEST ENGAGEMENTS START WITH A CLEAR PROBLEM.</div>
+      <p style="font-size:.9rem;color:var(--fg2);max-width:500px;margin:0 auto 2rem">Tell the forge what you are working on. If it is a good fit, you will know within 48 hours. If it is not, you will hear that honestly — along with a referral if possible.</p>
+      <a href="contact.html" class="btn btn-primary" style="margin-right:1rem">START A CONVERSATION →</a>
+      <a href="rates.html" class="btn btn-ghost">VIEW RATES</a>
+    </div>
+  </div>
+</div>
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="footer-brand">FLUID FORTUNE</div>
+    <div class="footer-links">
+      <a href="https://fluidfortune.com" target="_blank">Main Site</a>
+      <a href="https://portfolio.fluidfortune.com" target="_blank">Portfolio</a>
+      <a href="https://fluidfortune.com/sovereignty.html" target="_blank">White Paper</a>
+      <a href="https://github.com/FluidFortune" target="_blank">GitHub</a>
+    </div>
+    <div class="footer-creed">The Clark Beddows Protocol — Local first. No gatekeepers. You own everything. // The Ghost Engine never stops. The SPI Bus Treaty is why.</div>
+  </div>
+</footer>
+</body>
+</html>
